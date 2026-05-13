@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Mauro Hernán Acosta</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #111827;
+    --ink-soft: #374151;
+    --ink-muted: #6B7280;
+    --accent: #1B3A5C;
+    --accent-mid: #2E5C8A;
+    --accent-light: #EAF2FB;
+    --rule: #D1D5DB;
+    --surface: #F8F9FA;
+    --tag-bg: #E8EDF3;
+    --tag-text: #1B3A5C;
+    --page-bg: #EDEEF0;
+  }
+
+  body {
+    background: var(--page-bg);
+    font-family: 'Outfit', sans-serif;
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.10);
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 1123px;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--accent);
+    color: #fff;
+    padding: 40px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .sidebar-name {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #fff;
+    letter-spacing: -0.3px;
+  }
+
+  .sidebar-title {
+    font-size: 11.5px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+  }
+
+  .sb-section-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 9px;
+    line-height: 1.4;
+  }
+
+  .contact-item span.icon {
+    width: 14px;
+    text-align: center;
+    margin-top: 1px;
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
+
+  /* Skills section in sidebar */
+  .skill-group { margin-bottom: 14px; }
+
+  .skill-group-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 7px;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .pill {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.88);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Education in sidebar */
+  .edu-item { margin-bottom: 14px; }
+
+  .edu-degree {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.90);
+    line-height: 1.3;
+  }
+
+  .edu-institution {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 2px;
+    line-height: 1.35;
+  }
+
+  .edu-year {
+    font-size: 11px;
+    color: rgba(255,255,255,0.40);
+    margin-top: 2px;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    padding: 40px 40px 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    text-align: justify;
+  }
+
+  .about-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--accent-mid);
+    padding-left: 16px;
+  }
+
+  /* Section header */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.1px;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* Experience entries */
+  .exp-block { margin-bottom: 24px; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2px;
+  }
+
+  .exp-company {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .exp-period {
+    font-size: 11.5px;
+    color: var(--ink-muted);
+    white-space: nowrap;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+
+  .exp-role {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent-mid);
+    margin-bottom: 8px;
+  }
+
+  /* Sub-project inside experience */
+  .sub-project {
+    margin: 10px 0;
+    padding: 11px 14px;
+    background: var(--surface);
+    border-left: 2px solid var(--accent-mid);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .sub-project-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+
+  .sub-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sub-bullets li {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 4px;
+    line-height: 1.55;
+  }
+
+  .sub-bullets li::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    color: var(--accent-mid);
+    font-weight: 600;
+  }
+
+  .desc-text {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  /* Stack tags inside experience */
+  .stack-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .stack-tag {
+    font-size: 10.5px;
+    font-weight: 500;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.1px;
+  }
+
+  .exp-divider {
+    border: none;
+    border-top: 1px dashed var(--rule);
+    margin: 20px 0;
+  }
+
+  /* Personal project card */
+  .project-card {
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+
+  .project-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+  }
+
+  .project-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .project-badge {
+    font-size: 10px;
+    font-weight: 600;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+
+  .project-subtitle {
+    font-size: 11.5px;
+    color: var(--ink-muted);
+    margin-bottom: 8px;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; min-height: unset; }
+  }
+
+  /* ── MOBILE RESPONSIVE ── */
+  @media (max-width: 680px) {
+    body { font-size: 13px; }
+
+    .page {
+      grid-template-columns: 1fr;
+      margin: 0;
+      box-shadow: none;
+      min-height: unset;
+    }
+
+    .sidebar {
+      padding: 32px 20px 28px;
+      gap: 24px;
+    }
+
+    .sidebar-name {
+      font-size: 26px;
+    }
+
+    .sidebar-title {
+      font-size: 11px;
+    }
+
+    .contact-item {
+      font-size: 13px;
+    }
+
+    .main {
+      padding: 28px 18px;
+    }
+
+    .section-title {
+      font-size: 11px;
+    }
+
+    .exp-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+
+    .exp-period {
+      font-size: 11px;
+    }
+
+    .exp-company {
+      font-size: 15px;
+    }
+
+    .project-card {
+      padding: 14px 14px;
+    }
+
+    .project-card-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .stack-row {
+      gap: 5px;
+    }
+
+    .stack-tag {
+      font-size: 10px;
+      padding: 2px 7px;
+    }
+
+    .sub-project {
+      padding: 12px 12px;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .edu-block {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .edu-year {
+      text-align: left;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ════════════ SIDEBAR ════════════ -->
+  <aside class="sidebar">
+
+    <div>
+      <div class="sidebar-name">Mauro Hernán<br>Acosta</div>
+      <div class="sidebar-title">Desarrollador Full Stack &amp; Mobile</div>
+    </div>
+
+    <!-- Contacto -->
+    <div>
+      <div class="sb-section-label">Contacto</div>
+      <div class="contact-item">
+        <span class="icon">📍</span>
+        <span>Posadas, Misiones, Argentina</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">📱</span>
+        <span>+54 9 3764 794897</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">✉</span>
+        <span>Acostamaurohernan98@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">in</span>
+        <span style="word-break:break-all;font-size:11.5px;"><a href="https://www.linkedin.com/in/maauroacosta060798" target="_blank" style="color:rgba(255,255,255,0.82);text-decoration:none;">linkedin.com/in/maauroacosta060798</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="icon" style="font-style:normal;">⌥</span>
+        <span style="word-break:break-all;font-size:11.5px;"><a href="https://github.com/MauroAc98?tab=repositories" target="_blank" style="color:rgba(255,255,255,0.82);text-decoration:none;">github.com/MauroAc98</a></span>
+      </div>
+    </div>
+
+    <!-- Stack técnico -->
+    <div>
+      <div class="sb-section-label">Stack Técnico</div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Frontend</div>
+        <div class="skill-pills">
+          <span class="pill">Next.js</span>
+          <span class="pill">React</span>
+          <span class="pill">TypeScript</span>
+          <span class="pill">SASS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Mobile</div>
+        <div class="skill-pills">
+          <span class="pill">React Native</span>
+          <span class="pill">Zustand</span>
+          <span class="pill">Offline-First</span>
+          <span class="pill">SQLite</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Backend</div>
+        <div class="skill-pills">
+          <span class="pill">Laravel</span>
+          <span class="pill">PHP</span>
+          <span class="pill">CodeIgniter</span>
+          <span class="pill">REST APIs</span>
+          <span class="pill">JWT</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Bases de datos</div>
+        <div class="skill-pills">
+          <span class="pill">PostgreSQL</span>
+          <span class="pill">MySQL</span>
+          <span class="pill">Oracle 10g/12c</span>
+          <span class="pill">PL/SQL</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Herramientas</div>
+        <div class="skill-pills">
+          <span class="pill">Turborepo</span>
+          <span class="pill">PNPM</span>
+          <span class="pill">Git</span>
+          <span class="pill">PHPUnit</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educación -->
+    <div>
+      <div class="sb-section-label">Educación</div>
+      <div class="edu-item">
+        <div class="edu-degree">Analista de Sistemas</div>
+        <div class="edu-institution">IPESMI — Instituto Privado de Estudios Superiores de Misiones</div>
+        <div class="edu-year">Graduado 2022</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">Especialización Full Stack &amp; Mobile</div>
+        <div class="edu-institution">Coderhouse</div>
+        <div class="edu-year">2022 · React, React Native, JS Avanzado</div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ════════════ MAIN CONTENT ════════════ -->
+  <main class="main">
+
+    <!-- Sobre mí -->
+    <section>
+      <div class="section-header">
+        <span class="section-title">Perfil</span>
+        <div class="section-rule"></div>
+      </div>
+      <p class="about-text">
+        Me especializo en el desarrollo de soluciones que conectan stacks modernos con infraestructuras de datos complejas, con foco en software escalable y modernización de sistemas de misión crítica. Busco tender puentes entre tecnologías de vanguardia y arquitecturas empresariales robustas, donde la lógica de negocio y la performance son la prioridad. Me motiva la complejidad técnica y el aprendizaje continuo; mi objetivo es aportar versatilidad y pensamiento analítico a equipos que busquen no solo ejecutar, sino proponer y optimizar.
+      </p>
+    </section>
+
+    <!-- Experiencia -->
+    <section>
+      <div class="section-header">
+        <span class="section-title">Experiencia Laboral</span>
+        <div class="section-rule"></div>
+      </div>
+
+      <!-- ── Ministerio ── -->
+      <div class="exp-block">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">Ministerio del Agro y la Producción</div>
+            <div class="exp-role">Desarrollador Full Stack · Gobierno de Misiones</div>
+          </div>
+          <div class="exp-period">2023 — 2026</div>
+        </div>
+
+        <!-- Sub-proyecto 1 -->
+        <div class="sub-project">
+          <div class="sub-project-name">Ecosistema Digital Agropecuario (Arquitectura Centralizada)</div>
+          <ul class="sub-bullets">
+            <li>Colaboré en el desarrollo e integración de una red de sistemas distribuidos para la digitalización y gestión del sector productivo provincial, unificando datos de miles de productores en una única fuente de verdad (SSOT).</li>
+            <li><strong>RUP — Registro Único de Productores (Core / SSOT):</strong> motor central del ecosistema. Centralización de datos maestros, validación de identidad para sistemas externos y generación de reportes estadísticos globales.</li>
+            <li><strong>Sistemas Satélites integrados al RUP:</strong>
+              <ul class="sub-bullets" style="margin-top:4px;">
+                <li><strong>Gestión Ganadera:</strong> registro de marcas, señales y manifiestos ganaderos vinculado al RUP.</li>
+                <li><strong>Portal Apícola (REPROMELIMIS) &amp; Portal de Micología:</strong> portales de autogestión con backoffices administrativos para validación de trámites e inscripciones.</li>
+              </ul>
+            </li>
+            <li><strong>Ingeniería de Datos:</strong> arquitectura PostgreSQL multi-esquemas — esquema <em>public</em> (RUP) para datos core y esquemas sectoriales para lógica de negocio, garantizando integridad referencial total.</li>
+            <li><strong>Documentación &amp; Seguridad:</strong> reportes dinámicos con Blade Templates (DomPDF / Excel) y seguridad basada en JWT con gestión de roles complejos (Spatie).</li>
+          </ul>
+          <div class="stack-row">
+            <span class="stack-tag">Next.js 13</span><span class="stack-tag">React 18</span><span class="stack-tag">Axios</span><span class="stack-tag">PrimeReact</span><span class="stack-tag">PrimeFlex</span><span class="stack-tag">SASS</span><span class="stack-tag">Chart.js</span><span class="stack-tag">Google Maps API</span><span class="stack-tag">Quill</span><span class="stack-tag">Laravel 8</span><span class="stack-tag">PHP 8</span><span class="stack-tag">JWT-Auth</span><span class="stack-tag">Sanctum</span><span class="stack-tag">Spatie</span><span class="stack-tag">DomPDF</span><span class="stack-tag">Maatwebsite/Excel</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">PHPUnit</span>
+          </div>
+        </div>
+
+        <!-- Sub-proyecto 2 -->
+        <div class="sub-project">
+          <div class="sub-project-name">Sistema de Relevamiento Georreferenciado (End-to-End)</div>
+          <ul class="sub-bullets">
+            <li>App mobile con arquitectura <em>Offline-First</em>: persistencia de alta performance con Quick SQLite para trabajo en zonas sin conectividad.</li>
+            <li>Sincronización inteligente con detección de red (NetInfo) y envío multimedia via Multipart/form-data.</li>
+            <li>Flujo de auditoría web con esquemas de tablas temporales en PostgreSQL para revisión previa a la persistencia definitiva en el RUP.</li>
+          </ul>
+          <div class="stack-row">
+            <span class="stack-tag">React Native 0.85</span><span class="stack-tag">TypeScript</span><span class="stack-tag">Zustand</span><span class="stack-tag">Quick SQLite</span><span class="stack-tag">Reanimated</span><span class="stack-tag">Next.js 13</span><span class="stack-tag">PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="exp-divider">
+
+      <!-- ── TDI ── -->
+      <div class="exp-block">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">Tecnología y Desarrollo Informático (TDI)</div>
+            <div class="exp-role">Desarrollador Full Stack · Modernización de Sistemas</div>
+          </div>
+          <div class="exp-period">2022 — 2026</div>
+        </div>
+
+        <p class="desc-text">Participé en la transición tecnológica de plataformas gubernamentales y empresariales, integrando aplicaciones modernas con infraestructuras de datos complejas y pasarelas de pago.</p>
+
+        <ul class="sub-bullets">
+          <li><strong>SIGEDU (Sistema Integral de Gestión Educativo):</strong> plataforma de administración académica y arancelaria para instituciones educativas. Colaboré en el upgrade tecnológico de Oracle Forms a Microfrontends, configuré soporte para Oracle 10g en el framework corporativo (compatibilidad con PL/SQL, Paquetes y Triggers legados) e implementé un microservicio de cobros con Mercado Pago para la automatización del pago de matrículas y equivalencias.</li>
+          <li><strong>PDP (Puntos de Pago):</strong> participé en el desarrollo del sistema provincial que permite al contribuyente consultar sus obligaciones de distintos tributos, generar códigos QR de pago y abonarlos a través de múltiples pasarelas como Pagos360 y Macro Click.</li>
+          <li><strong>Entergroup (Tablero de Gestión):</strong> desarrollo de un panel para la toma de decisiones de una red de restaurantes, visualizando costos, volumen de ventas y cantidad de comensales por local, con gráficos de concurrencia filtrables por rango de fechas.</li>
+        </ul>
+
+        <div class="stack-row">
+          <span class="stack-tag">Next.js 13</span><span class="stack-tag">React 18</span><span class="stack-tag">Turborepo</span><span class="stack-tag">MUI v6</span><span class="stack-tag">CodeIgniter 4.3</span><span class="stack-tag">Oracle 10g</span><span class="stack-tag">MySQL</span><span class="stack-tag">Mercado Pago SDK</span><span class="stack-tag">PHPSpreadsheet</span><span class="stack-tag">mPDF</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyecto Personal -->
+    <section>
+      <div class="section-header">
+        <span class="section-title">Proyecto Personal Destacado</span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-header">
+          <div class="project-name">NailsManagerPro</div>
+          <span class="project-badge">Arquitecto &amp; Solo Dev</span>
+        </div>
+        <div class="project-subtitle">Solución integral de gestión comercial con arquitectura Offline-First para el sector estético</div>
+        <p class="desc-text" style="margin-top:8px;"><strong>Problemática:</strong> Optimización de la administración de turnos y captación de clientes mediante automatización de marketing y recordatorios, eliminando la dependencia de conectividad en entornos de movilidad.</p>
+        <p class="desc-text"><strong>Solución:</strong> Aplicación móvil nativa que centraliza la gestión de clientes, servicios y agendas, con herramientas integradas de generación de contenidos para redes sociales y comunicación automatizada.</p>
+        <ul class="sub-bullets">
+          <li><strong>Persistencia de Alto Rendimiento:</strong> Quick SQLite para manejo de la base de datos local, garantizando tiempos de respuesta mínimos y acceso offline total.</li>
+          <li><strong>Gestión de Estado &amp; Performance:</strong> arquitectura de estado ligero con Zustand y animaciones fluidas de 60fps mediante Reanimated y Gesture Handler.</li>
+          <li><strong>Automatización de Marketing:</strong> motor de renderizado dinámico con View Shot y Camera Roll para transformar la disponibilidad de turnos en piezas gráficas (Instagram Stories) de forma automatizada.</li>
+          <li><strong>Integración de Comunicación:</strong> sistema de plantillas parametrizables integrado con WhatsApp mediante React Native Share para envío semi-automático de recordatorios de turnos.</li>
+          <li><strong>UI/UX Moderna:</strong> Bottom Sheets de alto rendimiento y selección de fechas/horas optimizada con Modern DateTimePickers.</li>
+        </ul>
+        <div class="stack-row">
+          <span class="stack-tag">React Native 0.85</span><span class="stack-tag">React 19</span><span class="stack-tag">TypeScript 5.8 (Strict)</span><span class="stack-tag">Quick SQLite</span><span class="stack-tag">Zustand 5</span><span class="stack-tag">Reanimated 4</span><span class="stack-tag">Gesture Handler</span><span class="stack-tag">React Navigation 7</span><span class="stack-tag">Bottom Sheet v5</span><span class="stack-tag">View Shot</span><span class="stack-tag">Share API</span><span class="stack-tag">Image Picker</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
